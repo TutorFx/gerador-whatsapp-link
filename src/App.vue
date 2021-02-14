@@ -21,7 +21,7 @@
     #gerador{
       width: 50%;
       height: 100vh;
-      background-color: #ECE5DD;
+      //background-color: #ECE5DD;
 
       padding: 100px;
     }
@@ -37,10 +37,14 @@
         align-items: center;
         width: 100%;
         height: 100%;
+        
         #ads-content{
+          text-align: center;
+
           #whatsapp-logo{
             max-width: 200px;
-            margin-bottom: 30px
+            width: 60%;
+            margin-bottom: 30px;
           }
           #brand-name{
             font-family: 'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;
