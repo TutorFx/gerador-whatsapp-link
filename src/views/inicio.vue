@@ -1,77 +1,73 @@
 <template>
-  <div class="inicio">
-    <h2>Para iniciar</h2>
-    <v-form v-model="valid">
-      <v-container>
-        <v-row>
-          <v-col
-            cols="12"
-            md="4"
-          >
-            <v-text-field
-              v-model="firstname"
-              :rules="nameRules"
-              :counter="10"
-              label="First name"
-              required
-            ></v-text-field>
-          </v-col>
+  <div id="content">
+    <div id="Instructions">
+      <v-text-field
+        v-model="phoneNumber"
+        color="#128C7E"
+        filled
+        :counter="13"
+        @input="onlyNumbers"
+        label="Número de WhatsApp"
+        placeholder="55 61 99000-0000"
+        required
+      ></v-text-field>
+      <v-textarea
+        v-model="message"
+        color="#128C7E"
+        label="Mensagem a ser enviada"
+        placeholder="Que texto você gostaria de compartilhar em seu link? "
+        counter
+        maxlength="120"
+        full-width
+        filled
+      ></v-textarea>
+      <div v-if="analise && getlink" id="Linkbox">{{analise}}</div>
+      <div class="text-center">
+        <v-btn
+          color="#25D366"
+          depressed
+          :disabled="!analise"
+          class="white--text mx-1 mb-5"
+          @click="getlink = true;"
+        >
+        <v-icon
+          dark
+        >
+          mdi-link
+        </v-icon>
+        {{text.btn1}}</v-btn>
+        
+        <v-btn
+          color="#25D366"
+          text
+          :disabled="!analise"
+          class="mx-1 mb-5"
+          @click="clipboard()"
+        >
+        {{text.btn2}}</v-btn>
+      </div>
+      <p class="mb-0 text-center text-info">Nós não armazenaremos qualquer tipo de dado aqui inserido.</p>
+      <p class="mb-0 text-center text-info">O WhatsLink não contém qualquer vínculo a marca WhatsApp.</p>
+      <input type="hidden" id="clipboard" :value="analise">
+    </div>
+    <v-snackbar
+      v-model="snackbar"
+      left
+      top
+      :timeout="timeout"
+    >{{ text.popup }}
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="#25D366"
+          text
+          v-bind="attrs"
+          @click="snackbar = false"
+        >
+          Fechar
+        </v-btn>
+      </template>
+    </v-snackbar>
 
-          <v-col
-            cols="12"
-            md="4"
-          >
-            <v-text-field
-              v-model="lastname"
-              :rules="nameRules"
-              :counter="10"
-              label="Last name"
-              required
-            ></v-text-field>
-          </v-col>
-
-          <v-col
-            cols="12"
-            md="4"
-          >
-            <v-text-field
-              v-model="email"
-              :rules="emailRules"
-              label="E-mail"
-              required
-            ></v-text-field>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-form>
-    <v-alert
-      border="top"
-      color="red lighten-2"
-      dark
-    >
-      I'm an alert with a top border and red color
-    </v-alert>
-    <v-alert
-      border="right"
-      color="blue-grey"
-      dark
-    >
-      I'm an alert with a right border and blue-grey color
-    </v-alert>
-    <v-alert
-      border="bottom"
-      color="pink darken-1"
-      dark
-    >
-      I'm an alert with a bottom border and pink color
-    </v-alert>
-    <v-alert
-      border="left"
-      color="indigo"
-      dark
-    >
-      I'm an alert with a border left type info
-    </v-alert>
   </div>
 </template>
 
@@ -85,18 +81,57 @@ export default {
   components: {
   },
   data: () => ({
-    valid: false,
-    firstname: '',
-    lastname: '',
-    nameRules: [
-      v => !!v || 'Name is required',
-      v => v.length <= 10 || 'Name must be less than 10 characters',
-    ],
-    email: '',
-    emailRules: [
-      v => !!v || 'E-mail is required',
-      v => /.+@.+/.test(v) || 'E-mail must be valid',
-    ],
+    snackbar: false,
+    text: {
+      popup: '',
+      btn1: 'Obter Link',
+      btn2: 'Copiar link'
+    },
+    getlink: false,
+    timeout: 8000,
+    phoneNumber: '',
+    message: ''
   }),
+  watch:{
+    
+  },
+  computed:{
+    analise: function() {
+      let endpoint="https://api.whatsapp.com/send?"
+      let phone=this.phoneNumber
+      let message=this.message
+
+      if(phone == ''){
+        return false
+      }else{
+        let ifmessage = message !== '' ? `&text=${encodeURI(message)}` : ''
+        return endpoint + `phone=${phone}` + ifmessage
+      }
+    },
+  },
+  methods:{
+    clipboard () {
+      let clipboardValue = document.querySelector('#clipboard')
+      clipboardValue.setAttribute('type', 'text')   
+      clipboardValue.select()
+
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'bem sucedida' : 'mal sucedida';
+        this.text.popup = 'Link copiado de forma ' + msg;
+        this.snackbar = true;
+      } catch (err) {
+        this.text.popup = 'Link copiado de forma ' + msg;
+        this.snackbar = true;
+      }
+
+      /* unselect the range */
+      clipboardValue.setAttribute('type', 'hidden')
+      window.getSelection().removeAllRanges()
+    },
+    onlyNumbers() {
+      
+    }
+  }
 }
 </script>
