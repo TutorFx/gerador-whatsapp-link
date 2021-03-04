@@ -6,6 +6,8 @@
         color="#128C7E"
         filled
         :counter="13"
+        type="tel"
+        name="phone"
         @input="onlyNumbers"
         label="Número de WhatsApp"
         placeholder="55 61 99000-0000"
@@ -46,8 +48,8 @@
         >
         {{text.btn2}}</v-btn>
       </div>
-      <p class="mb-0 text-center text-info">Nós não armazenaremos qualquer tipo de dado aqui inserido.</p>
-      <p class="mb-0 text-center text-info">O WhatsLink não contém qualquer vínculo a marca WhatsApp.</p>
+      <p class="mb-0 text-center text-info">{{disclaimer[0]}}</p>
+      <p class="mb-0 text-center text-info">{{disclaimer[1]}}</p>
       <input type="hidden" id="clipboard" :value="analise">
     </div>
     <v-snackbar
@@ -90,10 +92,11 @@ export default {
     getlink: false,
     timeout: 8000,
     phoneNumber: '',
-    message: ''
+    message: '',
+    disclaimer: ["Nós não armazenaremos qualquer tipo de dado aqui inserido.","O WhatsLink não contém qualquer vínculo a marca WhatsApp."]
   }),
   watch:{
-    
+
   },
   computed:{
     analise: function() {
@@ -105,7 +108,7 @@ export default {
         return false
       }else{
         let ifmessage = message !== '' ? `&text=${encodeURI(message)}` : ''
-        return endpoint + `phone=${phone}` + ifmessage
+        return endpoint + `phone=${encodeURI(phone.replace(/\s/g,''))}` + ifmessage
       }
     },
   },
@@ -130,7 +133,7 @@ export default {
       window.getSelection().removeAllRanges()
     },
     onlyNumbers() {
-      
+      this.phoneNumber = this.phoneNumber.replace(/\D/g,'')
     }
   }
 }
