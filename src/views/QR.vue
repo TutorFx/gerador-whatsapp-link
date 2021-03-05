@@ -47,13 +47,13 @@
                     </v-row>
                 </v-expand-transition>
                 <div class="text-center py-5">
-                    <v-btn depressed dark color="#25D366" class="mx-2" @click="download()">
+                    <v-btn depressed dark color="#25D366" class="mx-2 mb-5" @click="download()">
                         <v-icon dark class="mr-3">
                             mdi-download
                         </v-icon>
                         Baixar QR
                     </v-btn>
-                    <v-btn text dark color="#25D366" class="mx-2" @click="personalizar = !personalizar">
+                    <v-btn text dark color="#25D366" class="mx-2 mb-5" @click="personalizar = !personalizar">
                         <v-icon dark class="mr-3">
                             mdi-wrench
                         </v-icon>
