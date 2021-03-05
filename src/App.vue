@@ -4,7 +4,7 @@
       <div id="gerador">
         <router-view/>
       </div>
-      <div id="ads">
+      <div id="brand">
         <branding/>
       </div>
     </div>
@@ -50,21 +50,21 @@
           }
         }
       }
-      #ads{
+      #brand{
         width: 350px;
         height: 100vh;
         background: #25D366;
         min-width: 320px;
 
         padding: 100px;
-        #ads-container{
+        #brand-container{
           display: flex;
           justify-content: center;
           align-items: center;
           width: 100%;
           height: 100%;
           
-          #ads-content{
+          #brand-content{
             text-align: center;
 
             #whatsapp-logo{
@@ -117,19 +117,19 @@
           }
         }
       }
-      #ads{
+      #brand{
         width: 100%;
         height: 10vh;
         background: #25D366;
 
-        #ads-container{
+        #brand-container{
           display: flex;
           justify-content: center;
           align-items: center;
           width: 100%;
           height: 100%;
           
-          #ads-content{
+          #brand-content{
             text-align: center;
 
             display: flex;

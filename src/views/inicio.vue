@@ -94,7 +94,7 @@ export default {
     timeout: 8000,
     phoneNumber: '',
     message: '',
-    disclaimer: ["Nós não armazenaremos qualquer tipo de dado aqui inserido.","O WhatsLink não contém qualquer vínculo a marca WhatsApp."]
+    disclaimer: ["Nós não armazenaremos qualquer tipo de dado aqui inserido.","O WhatsLnk não contém qualquer vínculo a marca WhatsApp."]
   }),
   watch:{
 
@@ -104,7 +104,6 @@ export default {
       let endpoint="https://api.whatsapp.com/send?"
       let phone=this.phoneNumber
       let message=this.message
-
       if(phone == ''){
         return false
       }else{
