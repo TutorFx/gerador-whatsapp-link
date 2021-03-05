@@ -11,6 +11,7 @@
         @input="onlyNumbers"
         label="Número de WhatsApp"
         placeholder="55 61 99000-0000"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
         required
       ></v-text-field>
       <v-textarea
