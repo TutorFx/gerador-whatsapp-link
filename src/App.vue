@@ -5,7 +5,7 @@
         <router-view/>
       </div>
       <div id="ads">
-        <ads/>
+        <branding/>
       </div>
     </div>
   </v-app>
@@ -156,11 +156,11 @@
 </style>
 
 <script>
-import ads from '@/components/Ads.vue'
+import branding from '@/components/branding.vue'
 
 export default {
   components:{
-    ads
+    branding
   },
 }
 </script>
