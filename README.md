@@ -1,4 +1,4 @@
-# gerador-whatsapp
+# WhatsLnk
 
 ## Project setup
 ```
