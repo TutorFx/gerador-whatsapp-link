@@ -13,6 +13,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+  @media only screen and (min-width: 830px)  { //desk
+    
+  }
+  @media only screen and (max-width: 830px)  { //mobile
 
+  }
 </style>

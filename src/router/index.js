@@ -10,6 +10,11 @@ const routes = [
     name: 'Inicio',
     component: Inicio
   },
+  {
+    path: '/QR/',
+    name: 'QR Code',
+    component: () => import('../views/QR.vue')
+  }
   // {
   //   path: '/about',
   //   name: 'About',

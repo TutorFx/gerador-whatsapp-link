@@ -17,7 +17,7 @@
       <v-textarea
         v-model="message"
         color="#128C7E"
-        label="Mensagem a ser enviada"
+        label="Mensagem do Link de WhatsApp"
         placeholder="Que texto você gostaria de compartilhar em seu link? "
         counter
         maxlength="120"
@@ -48,6 +48,20 @@
           @click="clipboard()"
         >
         {{text.btn2}}</v-btn>
+
+        <v-btn
+          color="#25D366"
+          text
+          small
+          fab
+          class="mx-1 mb-5"
+          :disabled="!analise"
+          to="/QR/"
+        >
+          <v-icon dark>
+            mdi-qrcode
+          </v-icon>
+        </v-btn>
       </div>
       <p class="mb-0 text-center text-info">{{disclaimer[0]}}</p>
       <p class="mb-0 text-center text-info">{{disclaimer[1]}}</p>
@@ -97,7 +111,9 @@ export default {
     disclaimer: ["Nós não armazenaremos qualquer tipo de dado aqui inserido.","O WhatsLnk não contém qualquer vínculo a marca WhatsApp."]
   }),
   watch:{
-
+    analise() {
+      sessionStorage.link = this.analise
+    }
   },
   computed:{
     analise: function() {

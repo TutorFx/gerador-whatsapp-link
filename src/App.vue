@@ -103,6 +103,8 @@
           padding: 50px;
           width: 100%;
           height: 100%;
+          max-height: 90vh;
+          overflow: scroll;
           #Instructions{
             .text-info {
               color: #c7c1ba;
