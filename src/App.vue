@@ -36,7 +36,7 @@
           width: 60%;
           max-width: 625px;
           min-width: 400px;
-          overflow-y: scroll;
+          overflow-y: auto;
           #Instructions{
             .text-info {
               color: #c7c1ba;
@@ -105,7 +105,7 @@
           width: 100%;
           height: 100%;
           max-height: 90vh;
-          overflow: scroll;
+          overflow: auto;
           #Instructions{
             .text-info {
               color: #c7c1ba;
