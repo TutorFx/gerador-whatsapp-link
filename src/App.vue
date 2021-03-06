@@ -32,10 +32,11 @@
         #content{
           background-color: #fff;
           padding: 50px;
-          border-radius: 15px;
+          border-radius: 5px;
           width: 60%;
           max-width: 625px;
           min-width: 400px;
+          overflow-y: scroll;
           #Instructions{
             .text-info {
               color: #c7c1ba;

@@ -113,6 +113,12 @@ export default {
   watch:{
     analise() {
       sessionStorage.link = this.analise
+    },
+    phoneNumber(){
+      sessionStorage.phoneNumber = this.phoneNumber
+    },
+    message(){
+      sessionStorage.message = this.message
     }
   },
   computed:{
@@ -150,6 +156,14 @@ export default {
     },
     onlyNumbers() {
       this.phoneNumber = this.phoneNumber.replace(/\D/g,'')
+    }
+  },
+  mounted(){
+    if(sessionStorage.phoneNumber !== undefined){
+      this.phoneNumber = sessionStorage.phoneNumber
+    }
+    if(sessionStorage.message !== undefined){
+      this.message = sessionStorage.message
     }
   }
 }
