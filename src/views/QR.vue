@@ -74,13 +74,13 @@
 <i18n>
 {
   "en-US": {
-    "code-color": "Code color",
-    "background-color": "Background color",
-    "download-qr": "download QR",
+    "code-color": "Code Color",
+    "background-color": "Background Color",
+    "download-qr": "Download QR",
     "close": "Close",
-    "customize": "Choose Color",
-    "has-background": "Should this QR code have a background?"
-  },
+    "personalize": "Choose Color",
+    "has-background": "This QR code must have background?"
+},
   "pt-BR": {
     "code-color": "Cor do Código",
     "background-color": "Cor de Fundo",
@@ -88,7 +88,7 @@
     "close": "Fechar",
     "personalize": "Escolher Cor",
     "has-background": "Esse QR code deve ter fundo?"
-  },
+},
   "es": { 
     "code-color": "Color del código",
     "background-color": "Color de fondo", 

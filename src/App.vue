@@ -19,15 +19,25 @@ export default {
     branding
   },
   created(){
-    if(this.lang.includes(navigator.language)){
-      this.langselect = navigator.language
+    this.changelang()
+  },
+  methods: {
+    changelang(){
+      if(this.lang.includes(navigator.language)){
+        this.langselect = navigator.language
+      }
+      this.$i18n.locale = this.langselect
     }
-    this.$i18n.locale = this.langselect
   },
   data: () => ({
       lang: ['pt-BR', 'en-US', 'pt-PT', 'es'], 
       langselect: 'en-US',
-  })
+  }),
+  watch: {
+    langselect(){
+      this.changelang()
+    }
+  }
 }
 </script>
 
