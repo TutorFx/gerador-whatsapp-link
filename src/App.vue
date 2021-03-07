@@ -11,6 +11,26 @@
   </v-app>
 </template>
 
+<script>
+import branding from '@/components/branding.vue'
+
+export default {
+  components:{
+    branding
+  },
+  created(){
+    if(this.lang.includes(navigator.language)){
+      this.langselect = navigator.language
+    }
+    this.$i18n.locale = this.langselect
+  },
+  data: () => ({
+      lang: ['pt-BR', 'en-US', 'pt-PT', 'es'], 
+      langselect: 'en-US',
+  })
+}
+</script>
+
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
   @media only screen and (min-width: 830px)  { //desk
@@ -19,7 +39,6 @@
     }
     #app{
       display: flex;
-
       #gerador{
         width: calc(100% - 350px);
         height: 100vh;
@@ -157,13 +176,3 @@
     }
   }
 </style>
-
-<script>
-import branding from '@/components/branding.vue'
-
-export default {
-  components:{
-    branding
-  },
-}
-</script>

@@ -12,7 +12,7 @@
                             <v-col cols="12" md="12">
                                 <div class="swatch-container text-center">
                                     <div class="swatch-content">
-                                        <h4 class="mb-5">Cor do Código</h4>
+                                        <h4 class="mb-5">{{$t('code-color')}}</h4>
                                         <v-color-picker
                                         dot-size="25"
                                         mode="hexa"
@@ -25,11 +25,11 @@
                             <v-col cols="12" md="12">
                                 <div class="swatch-container text-center">
                                     <div class="swatch-content">
-                                    <h4>Cor de Fundo</h4>
+                                    <h4>{{$t('background-color')}}</h4>
                                         <div class="text-center">
                                             <v-checkbox
                                                 v-model="semfundo"
-                                                :label="`Esse QR code deve ter fundo?`"
+                                                :label="$t('has-background')"
                                                 color="#25D366"
                                             ></v-checkbox>
                                         </div>
@@ -58,19 +58,46 @@
                 <v-icon dark class="mr-3">
                     mdi-download
                 </v-icon>
-                Baixar QR
+                {{$t('download-qr')}}
             </v-btn>
             <v-btn text dark color="#25D366" class="mx-2 my-2" @click="personalizar = !personalizar">
                 <v-icon dark class="mr-3">
                     mdi-palette
                 </v-icon>
-                {{!personalizar ? 'Escolher Cor' : 'Fechar'}}
+                {{!personalizar ? $t('personalize') : $t('close')}}
             </v-btn>
         </div>
     </div>
 </div>
-  
 </template>
+
+<i18n>
+{
+  "en-US": {
+    "code-color": "Code color",
+    "background-color": "Background color",
+    "download-qr": "download QR",
+    "close": "Close",
+    "customize": "Choose Color",
+    "has-background": "Should this QR code have a background?"
+  },
+  "pt-BR": {
+    "code-color": "Cor do Código",
+    "background-color": "Cor de Fundo",
+    "download-qr": "Baixar QR",
+    "close": "Fechar",
+    "personalize": "Escolher Cor",
+    "has-background": "Esse QR code deve ter fundo?"
+  },
+  "es": { 
+    "code-color": "Color del código",
+    "background-color": "Color de fondo", 
+    "download-qr": "Descargar QR", 
+    "close": "Cerca", 
+    "personalize": "Elegir color", 
+    "has-background": "¿Este código QR debe tener Color de fondo?" }
+}
+</i18n>
 
 <script>
 import VueQrious from 'vue-qrious'

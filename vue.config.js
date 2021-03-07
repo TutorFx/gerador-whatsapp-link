@@ -2,6 +2,7 @@ module.exports = {
   transpileDependencies: [
     'vuetify'
   ],
+
   pwa: {
     name: "Gerador de links WhatsApp - WhatsLnk",
     short_name: "WhatsLnk",
@@ -17,6 +18,7 @@ module.exports = {
       skipWaiting: true
     },
   },
+
   chainWebpack: config => {
     config
         .plugin('html')
@@ -24,5 +26,14 @@ module.exports = {
             args[0].title = "WhatsLnk";
             return args;
         })
+  },
+
+  pluginOptions: {
+    i18n: {
+      locale: 'pt-BR',
+      fallbackLocale: 'en-US',
+      localeDir: 'locales',
+      enableInSFC: true
+    }
   }
 }
