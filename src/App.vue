@@ -66,26 +66,6 @@ export default {
           max-width: 625px;
           min-width: 400px;
           overflow-y: auto;
-
-          overflow: auto;
-          scrollbar-width: thin;          /* "auto" or "thin" */
-          scrollbar-color: #c4c4c4 #fff;   /* scroll thumb and track */
-          &::-webkit-scrollbar {
-          width: 12px;               /* width of the entire scrollbar */
-          }
-
-          &::-webkit-scrollbar-track {
-          background: #fff;        /* color of the tracking area */
-          border-top-right-radius: 15px;
-          border-bottom-right-radius: 15px;
-          }
-
-          &::-webkit-scrollbar-thumb {
-          background-color: #e2e2e2;    /* color of the scroll thumb */
-          border-radius: 20px;       /* roundness of the scroll thumb */
-          border: 3px solid #fff;  /* creates padding around scroll thumb */
-          }
-          
           #Instructions{
             .text-info {
               color: #c7c1ba;
