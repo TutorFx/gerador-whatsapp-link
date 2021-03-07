@@ -84,7 +84,13 @@
         </v-btn>
       </template>
     </v-snackbar>
-
+    <div class="adsize">
+      <Adsense
+        data-ad-client="ca-pub-8355023593426591"
+        data-ad-slot="1"
+      >
+      </Adsense>
+    </div>
   </div>
 </template>
 
@@ -133,7 +139,9 @@
 </i18n>
 
 <style lang="scss">
-  
+  .adsize{
+    height: 250px;
+  }
 </style>
 
 <script>
