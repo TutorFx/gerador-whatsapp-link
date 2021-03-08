@@ -4,6 +4,7 @@ import vuetify from './plugins/vuetify'
 import router from './router'
 import './registerServiceWorker'
 import i18n from './i18n'
+import VS2 from 'vue-script2'
 
 Vue.config.productionTip = false
 
@@ -11,5 +12,6 @@ new Vue({
   vuetify,
   router,
   i18n,
+  VS2,
   render: h => h(App)
 }).$mount('#app')

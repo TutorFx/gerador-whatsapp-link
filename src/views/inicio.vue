@@ -84,7 +84,7 @@
         </v-btn>
       </template>
     </v-snackbar>
-
+    <script2 data-ad-client="ca-pub-8355023593426591" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script2>
   </div>
 </template>
 
