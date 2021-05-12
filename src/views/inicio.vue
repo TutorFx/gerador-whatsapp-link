@@ -31,7 +31,7 @@
           depressed
           :disabled="!analise"
           class="white--text mx-1 mb-5"
-          @click="getlink = true;"
+          @click="getlink = true; track('get')"
         >
         <v-icon
           dark
@@ -45,7 +45,8 @@
           text
           :disabled="!analise"
           class="mx-1 mb-5"
-          @click="clipboard()"
+          @click="clipboard(); track('get')"
+          
         >
         {{$t('copy-link')}}</v-btn>
 
@@ -57,6 +58,7 @@
           class="mx-1 mb-5"
           :disabled="!analise"
           to="/QR/"
+          @click="track('qr-code')"
         >
           <v-icon dark>
             mdi-qrcode
@@ -194,8 +196,26 @@ export default {
       clipboardValue.setAttribute('type', 'hidden')
       window.getSelection().removeAllRanges()
     },
-    onlyNumbers() {
+    onlyNumbers () {
       this.phoneNumber = this.phoneNumber.replace(/\D/g,'')
+    },
+    track (x) {
+      x == 'get' ? this.$gtag.event('Click-Get-Button', {
+        'event_category': 'Start Page',
+        'event_label': 'Click Obtain Link Button',
+        'value': 1 
+      }):
+      x == 'copy' ? this.$gtag.event('Click-Copy-Button', {
+        'event_category': 'Start Page',
+        'event_label': 'Click Copy Link Button',
+        'value': 1 
+      }):
+      x == 'qr-code' ? this.$gtag.event('Click-Show-QR-Button', {
+        'event_category': 'Start Page',
+        'event_label': 'Click QR Link Button',
+        'value': 1 
+      }): console.log('Ação não encontrada')
+
     }
   },
   mounted(){
